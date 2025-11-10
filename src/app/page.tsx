@@ -45,42 +45,48 @@ export default function Page() {
   const doubles = SOURCE.filter(([a, b]) => a === b);
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-2">Domino Cards</h1>
+    <div className="min-h-dvh bg-neutral-50 p-6 md:p-10">
+      <header className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
+            Domino Cards
+          </h1>
 
-      <p>Source: {JSON.stringify(SOURCE)}</p>
+          <p className="text-neutral-600">Source: {JSON.stringify(SOURCE)}</p>
+        </div>
 
-      <div className="flex gap-4 mt-4">
-        <button
-          onClick={sortAsc}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Sort Asc
-        </button>
-        <button
-          onClick={sortDesc}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Sort Desc
-        </button>
-        <button
-          onClick={resetAll}
-          className="px-4 py-2 bg-gray-500 text-white rounded"
-        >
-          Reset
-        </button>
-      </div>
+        <div className="flex gap-4 mt-4">
+          <button
+            onClick={sortAsc}
+            className="rounded-2xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-neutral-50 text-black"
+          >
+            Sort Asc
+          </button>
+          <button
+            onClick={sortDesc}
+            className="rounded-2xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-neutral-50 text-black"
+          >
+            Sort Desc
+          </button>
+          <button
+            onClick={resetAll}
+            className="rounded-2xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-neutral-50 text-black"
+          >
+            Reset
+          </button>
+        </div>
+      </header>
 
-      <h2 className="mt-6 font-semibold text-lg">Doubles:</h2>
+      <h2 className="mb-2 text-lg font-semibold text-neutral-900">Doubles:</h2>
 
       {doubles.length > 0 ? (
         doubles.map((d, i) => (
-          <p key={i} className="text-sm">
+          <p key={i} className="text-neutral-600">
             [{d[0]}, {d[1]}]
           </p>
         ))
       ) : (
-        <p>No doubles found</p>
+        <p className="text-neutral-600">No doubles found</p>
       )}
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -137,7 +143,7 @@ function DominoCard({
         Flip
       </button>
 
-      <p className="text-sm mt-1">Sum: {sum}</p>
+      <p className="text-sm mt-1 text-neutral-600">Sum: {sum}</p>
     </div>
   );
 }
