@@ -117,11 +117,7 @@ function DominoCard({
   return (
     <div className="flex flex-col items-center">
       <div className="w-24 h-36 border-2 border-black rounded-lg perspective">
-        <div
-          className={`relative w-full h-full transition-transform duration-500 preserve-3d ${
-            flipped ? "rotate-y-180" : ""
-          }`}
-        >
+        <div>
           <div className="absolute inset-0 text-black bg-white rounded-lg flex flex-col items-center justify-center backface-hidden">
             <div className="text-2xl">{tile.top}</div>
             <div className="my-1 w-3/4 h-px bg-black" />
